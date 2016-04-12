@@ -29,9 +29,9 @@ def int_input(prompt):
 
 # Main program below
 
-uBase = float_input("Tell me a base for a power function: ")
+uBase = float_input("Enter a base for a power function: ")
 
-uExponent = int_input("Tell me an exponent for a power function: ")
+uExponent = int_input("Enter an exponent for a power function: ")
 
 answer = to_power(uBase, uExponent)
 
