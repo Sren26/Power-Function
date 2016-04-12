@@ -1,26 +1,38 @@
+# Author : Sanford Ren
+# Date: 4/12/16
+
+# A revised recursive power function
 def to_power(base, exp):
+	if exp == 0:
+		return 1
+	answer = base * to_power(base, exp - 1)
+	return answer
 
-# This will count how many times the base is multiplied by itself
-	count = 0
-	next = 1
-	
-		
-# This will multiply the base by itself equal to the value of the exponent
-	while int(count) < int(exp):
-		next = int(base) * next
-		count += 1	
-	
-	return next
+# This function below will ensure that the user only enters a float,
+ # or else the program will return a error and prompt the user to try again
+def float_input(prompt):
+	answer = raw_input(prompt)
+	try:
+		return float(answer)
+	except ValueError:
+		return float_input("That wasn't a number. Try again: ")
+
+# This function below will ensure that the user only enters a float,
+ # or else the program will return a error and prompt the user to try again		
+def int_input(prompt):
+	answer = raw_input(prompt)
+	try:
+		return int(answer)
+	except ValueError:
+		return int_input("That wasn't a number. Try again: ")
 
 
- ### Main program below ###
+# Main program below
 
+uBase = float_input("Tell me a base for a power function: ")
 
-# User inputs Base and Exponent
-base = raw_input("Enter a base: ")
-exp = raw_input("Enter an exponent: ")
+uExponent = int_input("Tell me an exponent for a power function: ")
 
+answer = to_power(uBase, uExponent)
 
-answer = to_power(base, exp)
-
-print("The answer is {}".format(answer))
+print("{} to the power of {} is {}." .format(uBase, uExponent, answer))
